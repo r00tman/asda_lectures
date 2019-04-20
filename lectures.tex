@@ -68,20 +68,22 @@ y=\alpha+\beta x+\varepsilon\\
     =[(\nu_1-\nu_0)^2m_1+(\nu_2-\nu_0)^2m_2]\frac{1}{\nu_0(1-\nu_0)}\\
     \nu_1=\frac{\textrm{\#AF}}{\textrm{\#F}};~~
     \nu_0=\frac{\textrm{\#A}}{\textrm{\#A}+\textrm{\#B}};~~
-    m_1=\textrm{#F};~~
+    m_1=\textrm{\#F};~~
     \nu_2=\frac{\textrm{\#AM}}{\textrm{\#M}};~~
-    m_2=\textrm{#M}
+    m_2=\textrm{\#M}
 \end{gather*}
 
 \hrule
-Гудман, Крускал\\
+
+Гудман, Крускал
 
 \begin{gather*}
   y_1,\dots,\dots,\dots,y_m
 \end{gather*}
 
-разнот-авыолаывфлода вфы $y-y\mid x$ --- мера Крускала\\
-$x-x\mid y$ \\
+разнот-авыолаывфлода вфы $y-y\mid x$ --- мера Крускала
+
+$x-x\mid y$
 
 \hrule
 
@@ -522,8 +524,8 @@ J-тест
     \begin{axis}[anchor=origin, xlabel=$x$,ylabel=$y$,grid=major,ymin=0,ymax=1,height=5cm,width=5cm]
         \addplot[samples=50,domain=0:1]{4*x*(1-x)*(3/4+rand/4)} ;
     \end{axis}
-\begin{axis}[anchor=(0,10), % Shift the axis so its origin is at (0,0)
-rotate around={-90:(current axis.origin)}, % Rotate around the origin
+\begin{axis}[anchor=(0,10),
+rotate around={-90:(current axis.origin)},
 no markers, domain=0:10, samples=100,
 axis x line*=bottom, 
 axis lines=none, % Axis lines going through the origin
@@ -532,7 +534,7 @@ enlargelimits=false, clip=false, axis on top,
 grid = major]
 \addplot [domain=-5:0] {gauss(-2.5,1)};
 \end{axis}
-\draw (10,3) node[left]{v распределение броуновского моста};
+\draw (10,3) node[left]{v распределение броуновского моста} ;
 \end{tikzpicture}
 
 \begin{gather*}
