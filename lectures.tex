@@ -1,0 +1,1182 @@
+\documentclass{book}
+\usepackage[paperwidth=14cm, paperheight=21cm, margin=1cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots,mathtools}
+\begin{document}
+Меры связи между перменными
+\hrule
+
+\begin{gather*}
+\rho=\frac{\mathrm{cov}(y,x\mid \hat{s})}{\sigma_x \sigma_y}\\
+y=\alpha+\beta x+\varepsilon\\
+\beta=\frac{\mathrm{cov}(y,x)}{\sigma_x^2}
+\end{gather*}
+
+\hrule
+
+\begin{tikzpicture}
+    \begin{axis}[xlabel=$\beta$,ylabel=$\rho$,grid=major]
+        \addplot[samples=50,domain=-2:2]{x/sqrt(x^2)} ;
+    \end{axis}
+\end{tikzpicture}
+ \begin{gather*}
+  y=\alpha+\beta x
+\end{gather*}
+\hrule
+
+корр. Спирмана
+
+\begin{gather*}
+  p(n_i^a, n_i^b)=1-\frac{\sum_{i=1}^{m} {d_i^2}}{m(m-1)},~~d_i=n_i^a-b_i^{b}
+\end{gather*}
+
+\hrule
+\begin{gather*}
+    S={(y_1,x_1),\dots,(y_m,x_m)}\\
+    S={S_1,\dots,S_m}
+\end{gather*}
+
+\begin{gather*}
+    S_{j'}, S_{j''} \textrm{ -- согласованы } \Leftrightarrow\\
+    x_{j'}>x_{j''} \cap y_{j'}>y_{j''}\\
+    x_{j'}<x_{j''} \cap y_{j'}<y_{j''}
+\end{gather*}
+
+\begin{gather*}
+  \gamma = \frac{N_\textrm{с}-N_\textrm{нс}}{N_\textrm{с}+N_\textrm{нс}};~~
+  f=\frac{N_\textrm{с}-N_\textrm{нс}}{\left(\frac{m(m-1)}{2}\right)}\\
+  \textrm{не учитываются равенства}, ~~~~~~~~~~~~~~\textrm{Кэмпбелл}
+\end{gather*}
+\hrule
+
+Критерий сравнения бинарных переменных
+\begin{gather*}
+  \begin{matrix}
+      &A&B\\
+      F&a&b\\
+      M&c&d
+  \end{matrix}
+\end{gather*}
+\begin{gather*}
+  \Phi = \frac{ad-bc}{\sqrt{(a+b)(c+d)(b+d)(a+c)}}=\frac{\chi^2}{m}
+\end{gather*}
+\begin{gather*}
+    \chi^2=\sum_{}^{} {\frac{(mp_i-m_i)^2}{p_i}}
+    =[(\nu_1-\nu_0)^2m_1+(\nu_2-\nu_0)^2m_2]\frac{1}{\nu_0(1-\nu_0)}\\
+    \nu_1=\frac{\textrm{\#AF}}{\textrm{\#F}};~~
+    \nu_0=\frac{\textrm{\#A}}{\textrm{\#A}+\textrm{\#B}};~~
+    m_1=\textrm{#F};~~
+    \nu_2=\frac{\textrm{\#AM}}{\textrm{\#M}};~~
+    m_2=\textrm{#M}
+\end{gather*}
+
+\hrule
+Гудман, Крускал\\
+
+\begin{gather*}
+  y_1,\dots,\dots,\dots,y_m
+\end{gather*}
+
+разнот-авыолаывфлода вфы $y-y\mid x$ --- мера Крускала\\
+$x-x\mid y$ \\
+
+\hrule
+
+\begin{gather*}
+  y\mid x_1, \dots, x_n
+\end{gather*}
+оптимальна
+\begin{gather*}
+    \mathbb{E}(y-R)^2=\min_R\\
+    \Leftrightarrow\\
+    \mathbb{E}(Y-R)^2\leq \mathbb{E}(Y-\alpha-\beta R)^2=\\
+    \left[\begin{cases}
+            \frac{\partial \mathbb{E}(\alpha, \beta)}{\partial \alpha}=0\Big|_{\alpha=0,\beta=1}\\
+            \frac{\partial \mathbb{E}(\alpha, \beta)}{\partial \beta}=0\Big|_{\alpha=0,\beta=1}
+    \end{cases}\right]=
+\end{gather*}
+
+\begin{gather*}
+  \mathbb{E}(Y^2+\alpha^2+\beta^2 R^2-2\alpha Y - 2\beta RY+2\alpha\beta R)\geq\\
+  \mathbb{E}(Y^2+R^2-2YR)
+\end{gather*}
+
+\begin{gather*}
+  \mathbb{E}(\alpha^2+(\beta^2-1)R^2-2\alpha Y - 2(\beta-1)RY+2\alpha\beta R) \geq 0\\
+  \mathbb{E}(-2Y(\alpha+\beta-1)+\alpha^2+(\beta^2-1)R^2+2\alpha\beta R)\geq 0\\
+  \mathbb{E}-2Y+2\alpha+2\beta R = 2\alpha + 2 \mathbb{E}(\beta R - Y) = 0\\
+  \Rightarrow \mathbb{E}Y=\beta \mathbb{E}R\\
+  \mathbb{E}-2Y+2\beta R^2+2\alpha R \Rightarrow
+  \begin{cases}
+      \mathbb{E}-Y+R^2+R\\
+      \mathbb{E}R^2=\mathbb{E}YR
+  \end{cases}\\
+  \rho=\sqrt{\frac{D(R)}{D(Y)}}
+\end{gather*}
+
+\begin{gather*}
+  \mathbb{E}(Y-R)^2=\mathbb{E}Y^2-2\mathbb{E}(YR)+\mathbb{E}R^2=\\
+  \mathbb{E}Y^2-\mathbb{E}R^2\\
+  \frac{\mathbb{E}(Y-R)^2}{\mathbb{D}Y}=1-\frac{\mathbb{E}R^2}{\mathbb{E}Y^2}=1-\rho^2\\
+  \rho^2=1-\frac{\mathbb{E}(Y-R)^2}{\mathbb{D}Y}
+\end{gather*}
+
+\hrule
+Точные оценки
+
+несмещенность: 
+\begin{gather*}
+  \mathbb{E}(\hat{\theta}(S))=\theta
+\end{gather*}
+
+состоятельность: 
+\begin{gather*}
+  \hat{\theta} \rightarrow_{m\rightarrow\infty}\theta\\
+  \forall \varepsilon > 0 \lim_{m\rightarrow \infty} {P\{|\hat{\theta}_m(\hat{S}_m)-\theta|>\varepsilon\}}=0
+\end{gather*}
+
+эффективность:
+\begin{gather*}
+  \mathbb{E}(\hat{\theta}-\theta)^2\leq \mathbb{E}(\hat{\theta}'-\theta)^2 \forall \hat{\theta}'\\
+  \mathbb{E}(\hat{\theta}-\theta)^2\geq \frac{1}{mI(\theta)}, I(\theta)=\mathbb{E}\left(\frac{\partial l}{\partial \theta}\right)^2
+\end{gather*}
+
+\hrule
+
+\begin{gather*}
+  L(s|\overline{x},\overline{\theta})=\prod_{\overline{x}_j \in \overline{s}}^{} {f(x_j\mid \overline{\theta})}\\
+  s_m(\hat{\theta}_m-\theta) \rightarrow \mathcal{N}(0, I(\theta))\\
+  \int {L(\theta,\hat{\theta})f(\theta)d\theta} \rightarrow \min_{\hat{\theta}} \Rightarrow\\
+  \hat{\theta}=\int {\theta f(\theta\mid \overline{s}) d\theta}
+\end{gather*}
+
+\hrule
+Метод моментов
+
+\begin{gather*}
+  U~~~~f(U,\theta_1,\dots,\theta_k)\\
+  \hat{M}_1:~~\mathbb{E}(U)=g_1(\theta_1,\dots, \theta_k)\\
+  \hat{M}_2:~~\mathbb{E}(U-\mathbb{E}U)^2=g_2(\theta_1,\dots, \theta_k)\\
+  \hat{M}_3:~~\mathbb{E}(U-\mathbb{E}U)^3=g_3(\theta_1,\dots, \theta_k)
+\end{gather*}
+
+\begin{gather*}
+  \hat{M}_1=g_1(\hat{\theta}_1,\dots,\hat{\theta}_k)\\
+  \hat{M}_2=g_2(\hat{\theta}_1,\dots,\hat{\theta}_k)\\
+  \hat{M}_3=g_3(\hat{\theta}_1,\dots,\hat{\theta}_k)
+\end{gather*}
+
+Распределение Парето
+
+//прирост успеха к накопленному успеху//
+
+//ур. Колмогорова//
+
+кол-во богатства, кол-во ученых по числу публикаций, количество белков по доменам в организме
+
+\begin{gather*}
+  P(x\mid k, x_m) = \frac{kx^u_m}{x^{u+1}}[x_\geq x_m]\\
+  \mathbb{E}U = \frac{k}{k-1}x_m, ~~~ \mathbb{E}U^2=\frac{k}{k-2}x_m^2\\
+  \mathbb{D}U = \frac{kx_m^2}{(k-2)(k-1)^2}
+\end{gather*}
+
+Пример:
+\begin{gather*}
+    35\cdot 10^3=\frac{k}{k-1}x_m\\
+    4\cdot 10^8=\frac{kx_m^2}{(k-2)(k-1)^2}\\
+    k(k-2)=\frac{400}{35}\\
+    k^2-2k-\frac{400}{35}=0\\
+    k\approx 3\\
+    x_m = \frac{2}{3}\cdot 35\cdot 10^3 \approx 23 \cdot 10^3
+\end{gather*}
+
+\hrule
+МНК:
+
+\begin{gather*}
+    \prod_{j=1}^{} {f(x_j\mid \theta_1,\dots, \theta_k)}: y_j=x+\sum_{i=1}^{n} {\beta_j x_{ji}}+\varepsilon_j\\
+  f(\varepsilon_j)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\varepsilon_j^2/2\sigma^2}=\\
+  \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(y_i-\alpha-\sum_{i=1}^{n} {\beta_i x_{ji}})^2/2\sigma^2}\\
+  \hat{\beta}=(\hat{x}^T\hat{x})^{-1}\hat{x}^T;~~
+  y=\hat{C}_1 y_1+\dots+\hat{C}_m y_m\\
+  \mathbb{E}\hat{\beta}_i=\beta_i\\
+  \forall \overline{\gamma} \in \mathbb{R}^{n+1}:
+  \mathbb{E}(\overline{\gamma}+\hat{\beta}-\overline{\gamma}^T\beta)^2\leq
+  \mathbb{E}(\gamma^T \hat{\beta'}-\gamma^T\beta)^2\\
+  \Leftrightarrow \sum_{\hat{\beta}} - \sum_{\hat{\beta'}} \geq 0
+\end{gather*}
+
+
+теорема Г.-Маркова
+\begin{enumerate}
+    \item гомоскедактичность
+    \item нез. $\xi$
+    \item $\exists$ однозн. р.
+    \item $\exists$ реш.
+\end{enumerate}
+$\Rightarrow$ МНК $\rightarrow$ BLUE
+
+\hrule
+Дов. интервал
+
+\begin{gather*}
+  \theta \in [\theta_l(\hat{s}), \theta_u(\hat{s})]\\
+\end{gather*}
+
+Распределение Стьюдента
+
+\begin{gather*}
+  \sim T\\
+  \frac{U}{\sqrt{\frac{1}{n}V}},~~U\sim N,~~V=\sum_{i}^{} {U_i^2}\sim \chi^2
+\end{gather*}
+
+\begin{gather*}
+  z=\frac{\overline{x}-\hat{\mu}}{\sqrt{\frac{D}{m}}} \Rightarrow
+  z \sim T\\
+  D = \sum_{i}^{} {(x_i-\overline{x})^2} \sim \chi^2
+\end{gather*}
+
+\begin{gather*}
+  t_{m-1;\alpha/2}\leq z \leq t_{m-1;1-\alpha/2}\\
+  t_{m-1;\alpha/2}\leq \frac{\hat{x}-\mu}{\sqrt{D/m}} \leq t_{m-1;1-\alpha/2}\\
+  x-\sqrt{\frac{D}{m}}t_{m-1;1-\alpha/2} \leq \mu \leq x- \sqrt{\frac{D}{m}}t_{m-1;\alpha/2}\\
+  x-c\leq \mu \leq x + c
+\end{gather*}
+
+\hrule
+Доверительный интервал К-Пирсона
+
+$\alpha$ --- уровень значимости
+
+\begin{gather*}
+    P_u:\\
+    \sum_{i=0}^{k} {C^i_np^i_u(1-p_u)^{n-i}}=\frac{\alpha}{2}\\
+    P_l:\\
+    \sum_{i=k}^{n} {C^i_np^i_l(1-p_l)^{n-i}}=\frac{\alpha}{2}\\
+    \mathrm{Acc} \sim \mathcal{N}\left(p, \frac{p(1-p)}{m}\right)\\
+    Z_{N,\alpha/2} \leq \frac{\nu-p}{\sqrt{\frac{p(1-p)}{m}}}\leq Z_{N,1-\alpha/2}
+\end{gather*}
+
+\hrule
+Bootstrap
+
+//Bagging//
+
+\hrule
+
+Статистические тесты
+
+\begin{itemize}
+    \item Выборка; статистика критерия;
+    \item (Нейманн-Пирсон) 2 гипотезы: $h_0$, $h_1$;
+
+        Выбор на основе статистического критерия:
+        \begin{gather*}
+          T(\tilde{s}) > \delta
+        \end{gather*}
+\end{itemize}
+
+\hrule
+
+\begin{gather*}
+  T>\delta
+\end{gather*}
+
+\begin{tikzpicture}
+    \begin{axis}[xlabel=$x$,ylabel=$y$,grid=major,ymin=0, xmin=-4, xmax=4]
+        \addplot[samples=50,domain=-4:4]{e^(-(x-1)^2/2)/sqrt(2*pi)} ;
+        \addplot[samples=50,domain=-4:4]{e^(-(x+1)^2/2)/sqrt(2*pi)} ;
+        \draw (axis cs:-1,-1)--(axis cs:-1,2) ;
+        \draw (axis cs:1,-1)--(axis cs:1,2) ;
+    \end{axis}
+\end{tikzpicture}
+
+$\alpha$ --- ошибка 1-го рода  (1-специфичность) $p(pred=h_1\mid h_0)$
+$\beta$ --- ошибка 2-го рода $p(pred=h_0\mid h_1)$
+
+$1-\beta$ --- мощность критерия
+
+несмещенный критерий:
+
+$(1-\beta > \alpha)$ (wtf????)
+
+состоятельный:
+
+при фиксированном $\alpha$,  $\delta \rightarrow \infty$ (объем выбоки), мощность $\rightarrow 1$
+
+лемма Неймана-Пирсона: при фиксированном $\alpha$ для максимальной мощности надо использовать $T=\frac{p(\hat{S}|h_1)}{p(\hat{S}|h_0)}$.
+
+\hrule
+
+\begin{gather*}
+  P[T(\tilde{w})\geq T(\hat{S})]
+\end{gather*}
+
+,,от противного''
+
+//альтернативной гипотезы --- нет//
+
+двусторонние/односторонние критерии
+
+Тест Стьюдента для корреляции Пирсона:
+\begin{gather*}
+  U_0, U_1, \dots, U_n\\
+  V=\sum_{i=1}^{n} {U_i} \sim \chi^2\textrm{ --- с числом степеней свободы $n$}\\
+  \frac{u_0}{\sqrt{\frac{1}{n}V}} \sim \tau\textrm{ --- с числом степеней свободы n}
+\end{gather*}
+
+\begin{gather*}
+  X_1, X_2
+\end{gather*}
+
+\begin{gather*}
+  \tilde{S}=\left\{(x_{11},x_{12}), \dots, (x_{m1}, x_{m2})\right\}\\
+  T(\omega)=\rho(\omega)\sqrt{\frac{m-2}{1-\rho^2(\omega)}}
+\end{gather*}
+
+Статистика $T(\omega)$ распределена по Стьюденту с $m-2$ степенями свободы.
+
+одностороннее $p$-value: $p=1-\mathbb{F}^\mathrm{st}_{m-2}[T(\tilde{S})]$
+
+Гипотеза на нормальность
+
+Если два распределения нормальны, то статистика $T(\omega)=1+\log\frac{1+\hat{\rho}(\omega)}{1-\hat{\rho}(\omega)}$ хорошо приближается нормальным распределением 
+
+(в нулевую гипотезу входит $\rho_0$ --- коэффициент корреляции)
+
+\begin{gather*}
+  \frac{1}{2}\log \frac{1+\rho_0}{1-\rho_0} \textrm{ --- Z-преобразование Фишера}\\
+  \textrm{Дисперсия --- }\sqrt{\frac{2}{m-3}}
+\end{gather*}
+
+
+\begin{gather*}
+  z_0=\frac{1}{2}\sqrt{\dots}
+\end{gather*}
+
+
+\hrule
+
+\begin{gather*}
+  \{x_1, \dots, x_{m_1}\}\\
+  \{x_{m_1+1}, \dots, x_{m_2}\}
+\end{gather*}
+
+\begin{gather*}
+  \hat{\sigma}_1=\sqrt{\frac{1}{m_1-1}\sum_{i=1}^{m_1} {(x_i-\mu_1)^2}}\\
+  \hat{\sigma}_2=\sqrt{\frac{1}{m_2-m_1-1}\sum_{i=m_1+1}^{m_2} {(x_i-\mu_2)^2}}\\
+  \hat{\mu}_1=\frac{1}{m_1}\sum_{i=1}^{m_1} {x_i}\\
+  \hat{\mu}_2=\frac{1}{m_2-m_1}\sum_{i=m_1+1}^{m_2} {x_i}\\
+  \hat{\sigma}_{12}=\frac{(m_1-1)\hat{\sigma}_1+(m_2-m_1-1)\hat{\sigma}_2}{m_2-2}\\
+  T=\frac{\hat{\mu}_1-\hat{\mu}_2-\delta}{\hat{\sigma}_{12}\sqrt{\frac{1}{m_1}+\frac{1}{m_2-m_1}}}\textrm{ --- по $z$}\\
+  T \textrm{ --- по Стьюденту с $\mathrm{df}=m_2-2$}
+\end{gather*}
+
+\hrule
+
+Критерий. $p$-value: $p=1-\mathbb{F}^\textrm{st}_{m-2}[T(\tilde{S}_1, \tilde{S}_2)]$
+
+\hrule
+
+\begin{gather*}
+  \nu=\frac{\left(\frac{\hat{\sigma}_1^2}{m_1}+\frac{\hat{\sigma}_2^2}{m_2-m_1}\right)}{\frac{\hat{\sigma}_1^4}{m_1^2(m_1-1)}+\frac{\hat{\sigma}_2^4}{(m_2-m_1)^2(m_2-m_1-1)}}
+\end{gather*}
+
+Значимость регрессионных коэффициентов.
+\begin{gather*}
+  y_1=\beta_0+\sum_{i=1}^{n} {\beta_ix_{1i}}+\varepsilon_1\\
+  y_m=\beta_0+\sum_{i=1}^{n} {\beta_ix_{mi}}+\varepsilon_m
+\end{gather*}
+
+\begin{gather*}
+  \beta_i~~~~~~~~~\beta_i'
+\end{gather*}
+
+гомоскедактичность
+
+\begin{gather*}
+    \hat{\sigma}(\beta_i)=\frac{\hat{\sigma}^2_\textrm{err}}{\sum_{j=1}^{m} {(x_{ji}-\overline{x}_i)^2}}\\
+    \hat{\sigma}^2_\textrm{err}=\frac{\sum_{}^{} {(y_j-\hat{y}_j)^2}}{m-n-1}
+\end{gather*}
+
+Статистика критерия:
+\begin{gather*}
+    T_i =\frac{\hat{\beta}_i-\beta_i'}{\hat{\sigma}(\beta_i)} \sim \mathcal{T},~~ \mathrm{df}=m-n-1
+\end{gather*}
+
+//$\beta_i'$ часто устанавливают равным нулю//
+
+R-тест
+
+R-распределение:
+\begin{gather*}
+  V=\frac{U_1d_2}{U_2d_1}\\
+  U_1 \sim \chi^2, U_2 \sim \chi^2\\
+  \mathrm{df}=d_1, \mathrm{df}=d_2
+\end{gather*}
+
+\begin{gather*}
+  \mathrm{SSM}=\sum_{i=1}^{n} {(y_i-\overline{y})}^2\\
+  \mathrm{SSR}=\sum_{j=1}^{m} {(\hat{y}_j-y_j)^2}\\
+  \mathrm{MSM}=\frac{\mathrm{MSS}}{n}\\
+  \mathrm{MSR}=\frac{\mathrm{SSR}}{m-n-1}
+\end{gather*}
+
+Критерий односторонний $\frac{\mathrm{MSM}}{\mathrm{MSR}}\sim F(n, m-n-1)$
+(распределение Фишера)
+
+
+\hrule
+
+\begin{gather*}
+  \beta_i~~~~~~~~~~~~~~~\beta_0=\beta_1=\dots=\beta_n=0
+\end{gather*}
+
+Дисперсионный анализ
+\begin{gather*}
+  X,~~~~~~~~~~~~~~~Y
+\end{gather*}
+
+принимает I значений:
+\begin{gather*}
+  \mu_1,\dots,\mu_I\\
+  \mu_i=\mathbb{E}Y\mid x=i
+\end{gather*}
+
+субпопуляции
+
+предположение: внутри субпопуляций данные нормально распределены, причем стандартные отклонения одинаковые
+
+\begin{gather*}
+  J_1,\dots,J_I\\
+  J_i\textrm{ --- (количество объектов в субпопуляции)}
+\end{gather*}
+
+\begin{gather*}
+  \mu = \frac{1}{m}\sum_{i=1}^{I} {J_i\mu_i;~~~m=\sum_{i=1}^{I} {J_i}}\\
+  y_{ij}=\mu+\alpha_i+\varepsilon_{ij}\\
+  \sum_{i=1}^{I} \sum_{j=1}^{J_i} {(Y_{ij}-\mu-\alpha_i)^2}\\
+  \sum_{}^{} {J_i\alpha_i}=0\\
+  \hat{\mu}=\frac{1}{m}\sum_{i=1}^{I} {\sum_{j=1}^{J_i} {y_{ij}}}\\
+  \alpha_i=\frac{1}{J_i}\sum_{i=1}^{J_i} {y_{ij}-\hat{\mu}}
+\end{gather*}
+
+\begin{gather*}
+  \mathrm{SSB}=\sum_{i=1}^{I} {J_i\alpha_i^2}\\
+  \mathrm{SSR}=\sum_{i=1}^{I} \sum_{j=1}^{J_i} {(y_{ij}-\alpha_i-\mu)^2}\\
+  \frac{\mathrm{SSB}(m-1)}{\mathrm{SSR}- I} \sim F(I-1, m-I)
+\end{gather*}
+
+
+\hrule
+
+$\chi^2$, критерий $\chi^2$
+
+\begin{gather*}
+  X\\
+  \tilde{S}=\{x_1, \dots, x_m\}\\
+  T_{\chi^2}=\sum_{i=1}^{k} {\frac{(mp_i-m_i)^2}{mp_i}}
+  ~~~~~~
+  \begin{cases}
+      mp_i > 10\\
+      m\rightarrow\infty\\
+      T_{\chi^2} \approx \chi^2(k-1)
+  \end{cases}
+\end{gather*}
+
+\hrule
+
+J-тест
+
+\begin{gather*}
+  T_{\sigma}=2 \sum_{i=1}^{k} {m_i\log \frac{m_i}{mp_i}}\textrm{ (критерий максимального правдоподобия)}
+\end{gather*}
+
+короче, это круче предыдущего, тк это практически KL, а предыдущий это его приближение до квадратичного члена.
+
+\hrule
+
+критерий Колмогорова-Смирнова
+
+статистика Колмогорова:
+\begin{gather*}
+    D_n=\sup_x |F_n(x)-F(x)|\\
+    \mathrm{Pr}\{D_m>\varepsilon\} \rightarrow_{m\rightarrow\infty} 0
+\end{gather*}
+
+\begin{tikzpicture}
+    \begin{axis}[xlabel=$x$,ylabel=$y$,grid=major,xmin=0,xmax=1,ymin=0,ymax=1]
+        \addplot[samples=50,domain=0:2]{ln(1+x)/ln(2)} ;
+        \addplot[samples=800,domain=0:2]{round(10*ln(1+x)/ln(2))/10} ;
+    \end{axis}
+\end{tikzpicture}
+
+Броуновский мост
+
+\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+\begin{tikzpicture}
+    \begin{axis}[anchor=origin, xlabel=$x$,ylabel=$y$,grid=major,ymin=0,ymax=1,height=5cm,width=5cm]
+        \addplot[samples=50,domain=0:1]{4*x*(1-x)*(3/4+rand/4)} ;
+    \end{axis}
+\begin{axis}[anchor=(0,10), % Shift the axis so its origin is at (0,0)
+rotate around={-90:(current axis.origin)}, % Rotate around the origin
+no markers, domain=0:10, samples=100,
+axis x line*=bottom, 
+axis lines=none, % Axis lines going through the origin
+height=3cm, width=5cm, ytick=\empty, xtick={0},
+enlargelimits=false, clip=false, axis on top,
+grid = major]
+\addplot [domain=-5:0] {gauss(-2.5,1)};
+\end{axis}
+\draw (10,3) node[left]{v распределение броуновского моста};
+\end{tikzpicture}
+
+\begin{gather*}
+    K=\sup_{t\in[0,T]} |B(t)|
+\end{gather*}
+
+\begin{gather*}
+  \sum_{k}^{} {(t)^ke^{-2k^2x^2}}\\
+\end{gather*}
+
+$mD_m \rightarrow K$ при $m\rightarrow\infty$
+
+коррекция Фавыолрфа-Левенфорса, если делаем что-то интересное дважды по тем же данным
+
+\hrule
+
+Про связь J-теста и критерия $\chi^2$
+
+\begin{gather*}
+  \frac{mp_i}{m_i}=1+\delta_i; m_i=\frac{mp_i}{1+\delta_i}\\
+  \sum_{i=1}^{k} {m_i\log\frac{m_i}{mp_i}} = \sum_{i=1}^{k} {\frac{mp_i}{1+\delta_i}\log(1+\delta_i)}=\\
+  \sum_{i=1}^{k} {\frac{mp_i}{1+\delta_i}(\delta_i-\frac{delta_i^2}{2}+\dots)}=\\
+  =\left[\sum_{}^{} {m_i\frac{mp_i-m_i}{m_i}=\sum_{i=1}^{k} {mp_i-m_i}}=0\right]=\\
+  =\sum_{i=1}^{k} {-\frac{mp_i}{1+\delta_i}\left(\frac{\delta_i^2}{2}\right)}=
+  =\sum_{i=1}^{k} {-\frac{m_i}{1}\left(\frac{\left(mp_i-m_i\right)^2}{2m_i^2}\right)}=\\
+  \sum_{i=1}^{k} {-\frac{(mp_i-m_i)^2}{2m_i}}=-\sum_{}^{} {\frac{(mp_i-m_i)^2(1+\delta_i)}{2mp_i}}\\
+  \textrm{при }\delta_i=0\textrm{ получается } -\frac{1}{2}\sum_{}^{} {\frac{(mp_i-m_i)^2}{mp_i}}
+\end{gather*}
+\hrule
+К/С
+\begin{gather*}
+  S_1=(x_1^{(1)}, \dots, x_m^{(1)})\\
+  S_2=(x_2^{(2)}, \dots, x_m^{(2)})\\
+  \textrm{одинаковы ли?}\\
+\end{gather*}
+\begin{gather*}
+  D=\sup_x |F_1(x)-F_2(x)|\\
+  \sqrt{\frac{m_1m_2}{m_1+m_2}}D\rightarrow_{m_1,m_2\rightarrow\infty}K\\
+  P \left(\sqrt{\frac{m_1m_2}{m_1+m_2}}D\leq x\right) = P(K\leq X) \textrm{ при }m_1, m_2\rightarrow \infty
+\end{gather*}
+\hrule
+Критерий Мана-Уитни\\
+Предположений о распрeделении не требуется\\
+Почему ранги? Устойчивы к выбросам, очень низкие $p$-values.\\
+
+\begin{gather*}
+  S_1=(x_1^{(1)}, \dots, x_m^{(1)})\\
+  S_2=(x_2^{(2)}, \dots, x_m^{(2)})\\
+\end{gather*}
+\[
+  R_1^{1}=\sum_{i=1}^{m} {r(x_i^{(1)})};
+  R_2^{1}=\sum_{i=1}^{m} {r(x_i^{(2)})}
+\]
+$r$ -- ранг в объединенной выборке\\
+
+\begin{gather*}
+  U_1=R_1-\frac{m_1(m_1+1)}{2}; U_2=R_2-\frac{m_2(m_2+1)}{2}\\
+  U_1+U_2=m_1m_2\\
+  T=\min(U_1,U_2)\\
+  \mu=\frac{m_1m_2}{2}; \sigma=\sqrt{\frac{m_1m_2(m_1+m_2+1)}{12}}
+\end{gather*}
+ties: один и тот же/ как бы среднее
+\hrule
+Точный тест Фишера\\
+Задача анализа таблицы собряженности (X -- pred, Y -- true)\\
+\[
+\begin{matrix}
+  &Y_1&Y_2\\
+  X_1&a&b\\
+  X_2&c&d
+\end{matrix}
+\]
+\begin{gather*}
+  P(a, b, c, d) = \frac{C_{a+c}^{a}C_{b+d}^{d}}{C_{m}^{a+d}}
+\end{gather*}
+экстремальное значение -- max от mean
+\[
+\begin{matrix}
+  1&8\\
+  7&6
+\end{matrix}
+\]
+\begin{gather*}
+  T=\sum_{k=1}^{2} {\sum_{k=1}^{2} {\frac{m_{kk'}-mp_{kk'}}{mp_{kk'}}}}\\
+  p_{kk'}=p(x=x_k)p(y=y_k)\\
+  \Phi^2m=\frac{(ad-bc)^2m}{(a+b)(c+d)(b+d)(a+c)}
+\end{gather*}
+\[
+\begin{matrix}
+  20&5\\
+  5&10
+\end{matrix}
+\]
+\hrule
+Тест А.-В.\\
++++-{}-++-{}-{}-++-{}-+++-+{}-\\
+Runs-тест\\
+Серия\\
+$n_+$ -- число + в последовательности\\
+$n_-$ -- число - в последовательности\\
+$k$ -- число серий\\
+\begin{gather*}
+  T = \frac{R-\hat{R}}{\sigma_R}; \hat{R}=\frac{2n_+n}{n_++n}+1\\
+  \sigma_R^2=\frac{(2n_+n)(2n_+n-n_+-n_-)}{(n_++n)(N_++n_--1)}
+\end{gather*}
+$T$ распределена нормально ($n_+>10$, $n_->10$)\\
+\hrule
+Уилкоксон Wilcoxson\\
+\begin{gather*}
+  \left\{\left(x_1^{(1)},x_1^{(2)}\right), \dots, \left(x_m^{(1)}, x_m^{(2)}\right)\right\}\\
+  P_j=|x_j^{(1)}-x_j^{(2)}|\\
+  T=\sum_{j=1}^{m} {R_j \mathrm{sgn}(x_j^{(2)}-x_j^{(1)})}
+\end{gather*}
+$\frac{T}{\sigma}$ стремится к нормальному распределению, где $\sigma=\sqrt{\frac{m(m+1)(2m+1)}{6}}$ -- ранговый критерий Пирсона.
+
+\hrule
+
+Где-то тут должны были быть перестановочные тесты и, видимо, введение во множественное тестирование, которые я пропустил.
+
+\hrule
+
+Точное $p$-значение
+
+$\mathrm{FWER}=P(V\geq 1)$ --- приближение Бонферрони
+
+у $p$-значения вероятность быть $<0.01$ равна $0.01$
+
+что делать, если много гипотез?
+
+неравенство Буля
+
+$\Rightarrow$ $p$-значения надо умножать на $n$ ; (соотвественно, уровень значимости делить на $n$)
+
+\begin{gather*}
+  \mathrm{PFER}=\mathbb{E}(V)=\mathbb{E}[\sum_{i=1}^{n} {I(H^i_0)}]=\\
+  \sum_{i=1}^{n} {\mathbb{E}I(H_0^i)}=\sum_{i=1}^{n} {\alpha}=n\alpha \textrm{--- поправка Бонферрони}
+\end{gather*}
+
+\begin{gather*}
+  \frac{1}{N}\mathrm{PFER}=\alpha=\mathrm{PCER} \leq \mathrm{FWER} \leq \alpha n=\mathrm{PFER}\textrm{ --- неравенство Буля}
+\end{gather*}
+
+$\mathrm{FPR}$ --- доля ошибок первого рода среди отвергнутых нулевых гипотез.
+короче, он точнее описывает ситуацию
+
+например, у нас есть пациенты и мед. препарат.
+если на 30 из 100 пациентов он подействовал, то $\mathrm{PFER}$ бесполезен.
+
+\begin{gather*}
+  100\cdot 0.01=1\\
+  \mathrm{FDR}=\frac{1}{30}\textrm{ --- очень маленький}
+\end{gather*}
+
+Перестановочный тест
+
+Пусть $y$ не зависит от $x$ $\Rightarrow$ $y$ можно перестанавливать.
+
+сколько отвержено?
+
+сравниваем с реальным
+
+\hrule
+
+одношаговая процедура
+
+короче, поправка Бонферрони одношаговая. но можно лучше.
+
+\hrule
+
+процедуры пошагового спуска
+
+Бонферрони-Холма:
+\begin{gather*}
+  H_0^{(1)},\dots,H_0^{(n)}\\
+  p^{(1)},\dots,p^{(n)}\\
+  \alpha\\
+  \textrm{найдем }h: p^h > \frac{\alpha}{n+1-h}
+\end{gather*}
+
+Все гипотезы $H_0^{(1)},\dots,H_0^{(h-1)}$ отвергаются.
+
+Доказательство:
+
+Пусть $h$ --- первая верная, но отвергнута ошибочно.
+
+Пусть $m_0$ --- общее количество верных нулевых гипотез.
+
+Тогда
+\begin{gather*}
+  h-1\leq m-m_0\\
+  \frac{1}{m-h+1}\leq\frac{1}{m_0}\\
+  p(h)\leq \frac{\alpha}{m-h+1} \leq [\textrm{по построению самой процедуры}]\\
+  \leq \frac{\alpha}{m_0}\textrm{ по Бонферрони}
+\end{gather*}
+$\blacksquare$
+
+короче, вот от самого грубого до самого точного метода из рассмотренных:
+\begin{itemize}
+    \item Бонферрони
+    \item Бонферрони-Холма
+    \item Перестановочное тестирование
+\end{itemize}
+
+\hrule
+
+Временные ряды
+
+\begin{gather*}
+  x_1,\dots,x_T
+\end{gather*}
+
+Каждый временной ряд --- реализация случайного процесса.
+
+Каждый процесс:
+\begin{gather*}
+  X_t, t=\{\dots,-2,-1,0,1,2,\dots\}
+\end{gather*}
+
+Пусть есть фиксированный интервал $t_1,\dots,t_n$
+
+Процесс характеризуется совместным распределением:
+
+\begin{gather*}
+  f(x_{t_1},\dots,x_{t_n})
+\end{gather*}
+
+Стационарный процесс (строго стационарный):
+\begin{gather*}
+  f(x_{t_1+A},\dots,x_{t_n+A})= f(x_{t_1},\dots,x_{t_n})\\
+  \mathbb{E}(x_t)\textrm{ от $t$ независимо}\\
+  \mathbb{D}(x_t)\textrm{ от $t$ независимо}
+\end{gather*}
+
+\begin{gather*}
+  \mathrm{cov}(x_{t_1},x_{t_2})=\int \dots \int {(x_{t_1}-\mu)(x_{t_2}-\mu)f(x_{t_1},x_{t_2},\dots,x_{t_n}) dx_{t_1}\dots dx_{t_n}}=\\
+  \mathrm{cov}(x_{t_1+\Delta},x_{t_2+\Delta})=\int \dots \int {(x_{t_1+\Delta}-\mu)(x_{t_2+\Delta}-\mu)f(x_{t_1+\Delta},x_{t_2+\Delta},\dots,x_{t_n}) dx_{t_1}\dots dx_{t_n}}
+\end{gather*}
+
+Стационарность слабая (стационарность в широком смысле):
+
+\begin{itemize}
+    \item независимость $\mathbb{E}$, $\mathbb{D}$ от $t$;
+    \item автоковариационная функция зависит только расстояния между точками
+\end{itemize}
+
+Белый шум:
+в $\forall t$~~$\mathbb{E}=0$,~~$\mathbb{D}=\sigma^2$ 
+
+Между $x_{t_1}$ и $x_{t_2}$ зависимости нет (если $t_1\neq t_2$)
+
+Гауссовый шум --- белый, причем нормальный в каждой точке.
+
+Красный шум --- процесс случайного блуждания
+\begin{gather*}
+  x_t=x_{t-1}+\varepsilon_t\\
+  \varepsilon_t \sim \textrm{белый шум}\\
+  \mathbb{E}x_t=0~~~~\mathbb{D}x_t=t\mathbb{D}\varepsilon
+\end{gather*}
+
+ряд с трендом, ряд с сезонами
+
+\hrule
+
+теорема Вольда
+
+Любой стационарный процесс представим в следующем виде:
+\begin{gather*}
+    x_t=\mu+\sum_{i=0}^{\infty} {b_j\varepsilon_{t-j}},~~\sum_{i=0}^{\infty} {|b_i|}<\infty
+\end{gather*}
+
+\hrule
+
+процесс скользящего среднего:
+\begin{gather*}
+  x_t=\mu+\sum_{j=1}^{q} {b_j\varepsilon_{t-j}}\\
+  \mathbb{E}x_t=\mu,~~\mathbb{D}x_t=\sum_{j=1}^{q} {b_j^2\sigma^2}\textrm{ --- не зависит от $t$}
+\end{gather*}
+
+автоковариация зависит только от расстояния:
+\begin{gather*}
+  \mathrm{cov}(x_{t+\tau},x_t)=\sigma^2 \sum_{j=1}^{q-\tau} {b_jb_{j-\tau}}
+\end{gather*}
+
+\hrule
+
+линейная авторегрессия
+
+\begin{gather*}
+  x_t=\sum_{j=1}^{p} {a_jx_{t-j}}+\varepsilon_t
+\end{gather*}
+
+\hrule
+
+прогнозирование временных рядов
+
+сезонные колебания --- можно учитывать
+
+сезонность, тренд, стохастическая случайность
+
+ARMA --- для стационарных рядом
+
+ARIMA --- не обязательно только для стационарных рядов
+
+\begin{gather*}
+  y_t=x_t-x_{t-1}
+\end{gather*}
+
+
+Тест на стационарность Дики-Фуллера
+
+\begin{gather*}
+  x_{t+1}-x_t=\gamma x_{t-1}+\varepsilon_t\\
+  x_t=\rho x_{t-1}+\varepsilon_t
+\end{gather*}
+
+\hrule
+
+\begin{gather*}
+  x_t=\sum_{j=1}^{p} {a_jx_{t-j}}+\sum_{i=1}^{q} {b_j\varepsilon_j}
+\end{gather*}
+
+ACF: $Y(t)=P(y_t, y_{t-i})$ --- коэффициент корреляции
+
+PACF: $\gamma_p(t)=P(y_t-\sum_{j=1}^{i-1} {\Phi_jY_{t-j}},y_{t-1})$ --- показывает связь только с предыдущим элементом
+
+
+Переходим к виртуальным переменным, по которым можно найти $a$
+\begin{gather*}
+  z_1=x_t\\
+  x_2=x_{t-1}-b_1z_1\\
+  z_k=x_k-\sum_{j=1}^{q-1} {b_jz_j}
+\end{gather*}
+\begin{gather*}
+  z_t=\sum_{i}^{} {a_i z_{t-i}}+\varepsilon_t
+\end{gather*}
+
+\hrule
+
+\begin{gather*}
+  \overline{a}=\arg\min_a \sum_{t=1}^{T} {\left(z_t-\sum_{i}^{} {a_t z_{t-i}}\right)^2}
+\end{gather*}
+
+Box-Jenkins
+
+Только если стационарен!
+
+\newcommand{\defeq}{\vcentcolon=}
+\begin{gather*}
+  Lx_t \defeq x_{t-1},~~~L^2x_t=x_{t-2}
+\end{gather*}
+
+MA: $x_t=(1+b_1L+\dots+b_qL^q)\varepsilon_t$
+
+AR: $x_t=(a_1L+\dots+a_pL^p)x_t+\varepsilon_t$
+
+ARMA: $(1-a_1L-\dots-a_pL^p)x_t=(1+b_1L+\dots+b_qL^q)\varepsilon_t$
+
+\begin{gather*}
+  x_t=\frac{1+b_1L+\dots+b_qL^q}{1-a_1L-\dots-a_pL^p}\varepsilon_t
+\end{gather*}
+
+\hrule
+
+экзамен 22 числа в 10.
+
+временные ряды.
+
+стационарность --- совместная плотность не меняется со сдвигом по времени. проверить сложно, используют стационарность ковариции. (функция автокорелляции)
+
+белый шум --- мат. ожидание нулевое, любые две точки независимые. не путать с гауссовским (нормальное распределение в каждой точке)
+
+процесс случайного блуждание (красный шум) --- приращение ряда является белым шумом. мат. ожидание ноль, дисперсия растет линейно пропорционально дисперсии приращения
+
+процесс с трендом, процесс с сезонностью --- не стационарные
+
+теорема Вольда --- представление через сумму шумов
+
+процесс скользящего среднего --- мат. ожидание и сумма шумов (обрезанный ряд т. Вольда), стационарный:
+\begin{gather*}
+  X_t-\mu=\sum_{i=1}^{q} {b_i\varepsilon_{t-i}}+\varepsilon_t
+\end{gather*}
+
+процесс авторегрессии --- выражается через значения в предыдущие моменты времени:
+\begin{gather*}
+  X_t=\sum_{i=1}^{p} {a_iX_{t-i}}+\varepsilon_t
+\end{gather*}
+
+ARMA (auto-regressive moving average)
+
+Не может быть превращен в стационарный вычитанием линейного тренда:
+\begin{gather*}
+  X_t=a+X_{t-1}+\varepsilon_t
+\end{gather*}
+дрифт. потому что каждый раз добавляется $a$.
+
+Как из случайного блуждания получить стационарный ряд? Разность соседних точек:
+\begin{gather*}
+  Y_t=X_t-X_{t-1}
+\end{gather*}
+
+Интегрированный порядка 1 --- если можно получить стац. вычитанием соседних.
+
+К $Y_t$ тоже можно применять эту операцию. Пусть после одного раза не получилось, давайте еще раз.
+
+Интегрированный порядка $k$ (если после $k$ применений появляется стационарность):
+\begin{gather*}
+  X_t \sim I(k)
+\end{gather*}
+
+Модель ARMA работает только для стационарного ряда. Поэтому для того, чтобы использовать процедуру ARMA, надо превратить исходный ряд в стационарный. Как? Взятием разности.
+
+Модель ARMA, примененная к полученному ряду, называется ARIMA.
+
+Есть следующий вопрос по ARMA.
+\begin{gather*}
+  X_t=\sum_{i=1}^{p} {a_iX_{t-i}}+\sum_{i=1}^{q} {b_t\varepsilon_{t-i}}+\varepsilon_t
+\end{gather*}
+
+Для того чтобы задать его, нужно знать $a$ и $b$. Можно применить ММК. Мы знаем  $X_t$. Но мы должны получить коэффициенты  $b$
+
+Была предложенна схема перехода к дополнительным переменным  $Z$, которые выражаются через  $X$:
+\begin{gather*}
+  Z_1=X_1; Z_2=X_2-b_1 Z_1; \dots; Z_p=X_{p}-\sum_{i=1}^{p} {b_i Z_{p-i}}\\
+  Z_t=\sum_{i=1}^{} {a_iZ_{t-1}+\varepsilon_t}
+\end{gather*}
+
+Здесь ММК уже известен. Справедливость доказана через операторы сдвига.
+\begin{gather*}
+  Q=\sum_{t=1}^{T} {\left(Z_t-\sum_{i=1}^{p} {a_iZ_{t-i}}\right)^2}
+\end{gather*}
+
+
+Как получить $b$? Перебираем на какой-то сетке, на котором значение $Q$ минимально.
+
+Мы не знаем еще $p$ и $q$. Смотрим на коэффициент корреляции. Он должен убывать по времени. Смотрим, когда эта автокорреляция занулится.
+
+Кроме ак используется частная автокорелляция. То есть мы должны при вычислении корреляции между переменными вычесть влияние промежуточных.
+\begin{gather*}
+  X_{t-\mu}~~~~~X_t
+\end{gather*}
+\begin{gather*}
+  Z_t=X_t-\sum_{i=1}^{M-1} {\Phi X_{t-i}}\\
+  \rho\left[Z_t, X_{t-\mu}\right]\textrm{ --- частная автокорреляция}
+\end{gather*}
+(не уверен, но для $a$, $b$ --- обычная ак, для $p$, $q$ --- частная ак)
+
+Про операторы сдвига.
+
+\begin{gather*}
+  LX_t=X_{t-1}
+\end{gather*}
+
+Авторегрессия:
+\begin{gather*}
+  X_t = \sum_{i=1}^{p} {a_iL^iX_t} + \varepsilon_t\\
+  \left(X-\sum_{i=1}^{p} {L^iX_i}\right)=\varepsilon_t\\
+  \left(1-\sum_{i=1}^{t} {L^i}\right)X_i=\varepsilon_t
+\end{gather*}
+
+Процесс взятия $K$-разности: $(1-L)^K X_t$
+
+\begin{gather*}
+  A(L)(1-\rho L)^KX_t=\varepsilon_t
+\end{gather*}
+Возможность такого представления означает, что, воздействуя так, мы получаем стационарный процесс
+
+Процесс с единичным корнем --- если с помощью разностей можно получить стационарный ($\rho=1$; н-р, процесс случайного блуждания). Процесс плохой, плохо предсказуемый и т.д.
+
+Наличие корня $\rho$:
+\begin{gather*}
+  X_t=\rho X_{t-1}+\varepsilon_t\\
+  (1-\rho L)X_t=\varepsilon_t
+\end{gather*}
+
+Есть в эконометрике концепция.
+Пусть есть несколько переменных.
+Очень часто возникают корреляции между этими переменными, который 1) статистически достоверны, 2) никак не объяснимы логически.
+Ложные регрессии.
+Встречаются значительно чаще, чем уровень значимости.
+Были попытки объяснить это какими-то скрытими переменными, влияниями.
+Но если мы будем моделировать случайные процессы, мы можем так сделать.
+Получается, что коэффициент корреляции 0.8 для ряда длины 15 раз в 20 случаев.
+Это характерно для стохастически нестационарных временных рядов.
+Замечено уже Ньювеллом.
+В 70-е годы утвердилось.
+Получается, стандартная статистика совершенно неприменима. Ее можно применять только когда ряды стационарны.
+
+Как бороться с процессом случайного блуждания? Нужен инструмент.
+
+Концепция коинтеграции. Опубликовано в 1981. Потребовали, чтобы остатки были стационарными.
+
+Для того чтобы сказать, что процессы связаны, нужно показать, что остатки были не только маленькие, но и стационарными:
+\begin{gather*}
+  X^1_t=\alpha X^2_t+z_i
+\end{gather*}
+
+Напрямую тест Дики-Фуллера использовать нельзя, хоты бы потому, что мы уже подбираем коэффициенты через МК. Надо его корректировать, а то он слишком оптимистично. Это сделано через моделирование Монте-Карло.
+
+Что такое коинтеграция на наборе переменных?
+\begin{gather*}
+  \exists a_i: \sum_{t=1}^{K} {a_tX^t} \textrm{ --- стационарен }
+\end{gather*}
+
+Постоянно подвергается критике.
+
+Когда нужен? Когда изучаем процессы с единичными корнями или процессы, которые сводятся к стационарным взятием разности.
+\hrule
+
+Анализ выживаемости.
+
+Используется в онкологии, в анализе занятости.
+
+Нужно предсказать, что произойдет с объектом.
+
+Точный момент времени --- не предскажем. Наиболее точную картину дает кривая выживаемости.
+
+\begin{tikzpicture}
+  \begin{axis}[xlabel=$T$, ylabel={$S=P(T>t)$ --- выживаемость}, grid=major, xmin=0, xmax=3, ymin=0, ymax=1]
+
+    \addplot[domain=0:3]{exp(-x^2)};
+  \end{axis}
+\end{tikzpicture}
+
+Метод Каплана-Майера. Разбивается интервал времени на маленькие интервальчики.
+\begin{gather*}
+  \prod_{j=1}^{J} {\frac{m_j-a_j}{m_j}}
+\end{gather*}
+
+Цензурирование выборки данных (известно, что через 5 месяцев жив; известны только нижние границы)
+
+\begin{gather*}
+  \tilde{S}=\{(\alpha_j, t_j, x) | j=1,\dots,n\}
+\end{gather*}
+
+Цель --- восстановить $S(t, \overline{X})$
+
+Модель Кокса. Основывается на модели
+\begin{gather*}
+  \lambda(t)=\lim_{\Delta\rightarrow 0} {\frac{P(T\leq t+\Delta|T>t)}{\Delta}}
+\end{gather*}
+
+Из определения условной вероятности:
+\begin{gather*}
+  \lambda(t)=-\frac{dS}{S}
+\end{gather*}
+
+Что отсюда следует?
+\begin{gather*}
+  \log S = \int {\lambda(t)dt} \\
+  S=e^{-\int {\lambda(t)dt}}\\
+  \lambda(t,X)=\lambda_0(t)\lambda(X)
+\end{gather*}
+
+Интересная модель:
+\begin{gather*}
+  \lambda(t,X)=\lambda_0(t)e^{-\beta X}\\
+\end{gather*}
+
+Отсюда:
+\begin{gather*}
+  S(t,X)=\left(S_0(t)\right)^{e^{-\beta x}}\\
+  S_0(t)=e^{-\int {\lambda(t)Adt}}
+\end{gather*}
+
+\hrule
+Максим
+
+Чем занимается наука? Мы проверяем, если есть зависимость между целевой и .. переменной.
+
+\begin{gather*}
+  Y <-> X\\
+  H_0:X \bot Y\\
+  T(X,Y) \textrm{ --- чем больше, тем больше зависимость}
+\end{gather*}
+
+Генерируем новую выборку:
+\begin{gather*}
+  (X,Y) \rightarrow (X, \tilde{Y}), \tilde{Y}=o(Y)
+\end{gather*}
+
+Перестановочный тест:
+\begin{gather*}
+  \{T(X, \tilde{Y}) | \forall \tilde{Y}\}
+\end{gather*}
+
+Что нужно сделать, чтобы найти вероятность того, что $X$ и $Y$ независимы?
+\begin{gather*}
+  T=T(X,Y) \{\tilde{T}=T(X,\tilde{Y})\}\\
+  \frac{\sum_{\tilde{T}} {[T\leq \tilde{T}]} {}}{|\{\tilde{T}\}|}=p^*
+\end{gather*}
+
+Что делать, если у нас много $X$?
+
+\begin{gather*}
+  Y <-> X_1,\dots,X_d\\
+  T_1(X_1,Y), \dots, T_d(X_d,Y)\\
+  \textrm{комплексная нулевая гипотеза}\\
+  H_0=\cap_{i=1}^d H_{i0}, H_{i0}=X_i\bot Y
+\end{gather*}
+
+\begin{gather*}
+  p^*\approx p=P(T\leq \tilde{T}\mid H_0)
+\end{gather*}
+
+Подставляем в combining function $\psi$
+\begin{gather*}
+  p^*_1, \dots, p^*_d \mapsto \psi(p^*_1, \dots, p^*_d)\\
+  \psi: [0,1]^d \rightarrow \mathbb{R}\\
+  1) \psi(\dots, \hat{p}_i, \dots) \geq \psi(\dots, \overline{p}_i,\dots), \hat{p}_i \leq \overline{p}_i\\
+  2) \exists \overline{\psi}\leq +\infty: \psi(\dots, p_i, \dots) \rightarrow \overline{\psi}\\
+  3) \forall \alpha > 0 \exists \psi_\alpha < \overline{\phi}: p(\phi>\phi_\alpha \mid H_0)=\alpha
+\end{gather*}
+
+Мы встроили перестановочный тест в перестановочный тест, чтобы можно было делать перестановочный тест пока мы делаем перестановочный тест:
+
+\begin{gather*}
+  p^*=\frac{\sum_{\tilde{\psi}}^{} {[\psi\leq\tilde{\psi}]}}{|\{\tilde{\psi}\}|}
+\end{gather*}
+
+Значимый: $p(T\geq T_\alpha|H_1)\geq \alpha$, если $P(T\geq T_\alpha|H_0)=\alpha$\\
+Несмещенный: $\forall z\in \mathbb{R}: P(T\leq z\mid H_0)\geq P(T\leq z\mid H_1)$\\
+Состоятельный: $P(T\geq T_\alpha \mid H_1) \rightarrow_{n \rightarrow \infty} 1, \forall \alpha > 0$
+
+Если три свойства выполнены, то это NPC (non-parametric combination)
+
+Первый вариант: функция Фишера
+\begin{gather*}
+  \psi(\vec{p})=-2 \sum_{i}^{} {\log p_i}
+\end{gather*}
+
+Второй вариант: функция Липтака
+\begin{gather*}
+  \psi(\vec{p}) = \sum_{i}^{} {F^{-1}(1-p_i)}\\
+  \textrm{если совпадает с сигмоидой, то}\\
+  F(x)=\sigma(x)=\frac{1}{1+e^{-x}}\\
+  F^{-1}(x)=-\log\left(x^{-1}-1\right)=\log\left(\frac{x}{1-x}\right)\\
+  \psi(\vec{p}) = \sum_{i}^{} {\log \frac{1-p_i}{p_i}}
+\end{gather*}
+
+Третий вариант: функция Типпита
+\begin{gather*}
+  \psi(\vec{p}) = \max_i\{1-p_i\}
+\end{gather*}
+
+Используют и менее обоснованные вещи. Например, $\hat{\psi}(\vec{p})=-\frac{1}{d}\sum_{}^{} {p_i}$
+
+\end{document}
