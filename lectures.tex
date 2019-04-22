@@ -27,7 +27,7 @@ y=\alpha+\beta x+\varepsilon\\
 \end{gather*}
 \hrule
 
-корр. Спирмана
+корр. Спирмена
 
 \begin{gather*}
   p(n_i^a, n_i^b)=1-\frac{\sum_{i=1}^{m} {d_i^2}}{m(m-1)},~~d_i=n_i^a-b_i^{b}
@@ -127,7 +127,7 @@ $x-x\mid y$
 \end{gather*}
 
 \hrule
-Точные оценки
+Точечные оценки
 
 несмещенность: 
 \begin{gather*}
@@ -140,7 +140,7 @@ $x-x\mid y$
   \forall \varepsilon > 0 \lim_{m\rightarrow \infty} {P\{|\hat{\theta}_m(\hat{S}_m)-\theta|>\varepsilon\}}=0
 \end{gather*}
 
-эффективность:
+эффективность (оптимальность):
 \begin{gather*}
   \mathbb{E}(\hat{\theta}-\theta)^2\leq \mathbb{E}(\hat{\theta}'-\theta)^2 \forall \hat{\theta}'\\
   \mathbb{E}(\hat{\theta}-\theta)^2\geq \frac{1}{mI(\theta)}, I(\theta)=\mathbb{E}\left(\frac{\partial l}{\partial \theta}\right)^2
@@ -212,7 +212,7 @@ $x-x\mid y$
 \end{gather*}
 
 
-теорема Г.-Маркова
+теорема Гаусса-Маркова
 \begin{enumerate}
     \item гомоскедактичность
     \item нез. $\xi$
@@ -954,7 +954,7 @@ ARMA (auto-regressive moving average)
   X_t=\sum_{i=1}^{p} {a_iX_{t-i}}+\sum_{i=1}^{q} {b_t\varepsilon_{t-i}}+\varepsilon_t
 \end{gather*}
 
-Для того чтобы задать его, нужно знать $a$ и $b$. Можно применить ММК. Мы знаем  $X_t$. Но мы должны получить коэффициенты  $b$
+Для того чтобы задать его, нужно знать $a$ и $b$. Можно применить МНК. Мы знаем  $X_t$. Но мы должны получить коэффициенты  $b$
 
 Была предложенна схема перехода к дополнительным переменным  $Z$, которые выражаются через  $X$:
 \begin{gather*}
@@ -962,7 +962,7 @@ ARMA (auto-regressive moving average)
   Z_t=\sum_{i=1}^{} {a_iZ_{t-1}+\varepsilon_t}
 \end{gather*}
 
-Здесь ММК уже известен. Справедливость доказана через операторы сдвига.
+Здесь МНК уже известен. Справедливость доказана через операторы сдвига.
 \begin{gather*}
   Q=\sum_{t=1}^{T} {\left(Z_t-\sum_{i=1}^{p} {a_iZ_{t-i}}\right)^2}
 \end{gather*}
