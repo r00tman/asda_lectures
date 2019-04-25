@@ -419,7 +419,7 @@ R-распределение:
 \end{gather*}
 
 \begin{gather*}
-  \mathrm{SSM}=\sum_{i=1}^{n} {(y_i-\overline{y})}^2\\
+  \mathrm{SSM}=\sum_{j=1}^{m} {(y_j-\overline{y})}^2\\
   \mathrm{SSR}=\sum_{j=1}^{m} {(\hat{y}_j-y_j)^2}\\
   \mathrm{MSM}=\frac{\mathrm{MSS}}{n}\\
   \mathrm{MSR}=\frac{\mathrm{SSR}}{m-n-1}
@@ -522,7 +522,7 @@ G-тест
     \begin{axis}[anchor=origin, xlabel=$x$,ylabel=$y$,grid=major,ymin=0,ymax=1,height=5cm,width=5cm]
         \addplot[samples=50,domain=0:1]{4*x*(1-x)*(3/4+rand/4)} ;
     \end{axis}
-\begin{axis}[anchor=(0,10),
+\begin{axis}[anchor={(0,10)},
 rotate around={-90:(current axis.origin)},
 no markers, domain=0:10, samples=100,
 axis x line*=bottom, 
