@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{pgfplots,mathtools}
+\usepackage{tipa}
 \begin{document}
 Меры связи между перменными
 \hrule
@@ -519,7 +520,7 @@ G-тест
 \pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
 \begin{tikzpicture}
-    \begin{axis}[anchor=origin, xlabel=$x$,ylabel=$y$,grid=major,ymin=0,ymax=1,height=5cm,width=5cm]
+    \begin{axis}[anchor=origin, xlabel=$t$,ylabel=$y$,grid=major,ymin=0,ymax=1,height=5cm,width=5cm]
         \addplot[samples=50,domain=0:1]{4*x*(1-x)*(3/4+rand/4)} ;
     \end{axis}
 \begin{axis}[anchor={(0,10)},
@@ -532,7 +533,7 @@ enlargelimits=false, clip=false, axis on top,
 grid = major]
 \addplot [domain=-5:0] {gauss(-2.5,1)};
 \end{axis}
-\draw (10,3) node[left]{v распределение броуновского моста} ;
+\draw (10,3) node[left]{\textdownstep распределение броуновского моста} ;
 \end{tikzpicture}
 
 \begin{gather*}
